@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NATCO Crop Health Sciences — Product Catalog 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        /* ─── NAVBAR ─── */
+        .navbar {
+            background: #0f2d6e;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar-logo {
+            width: 34px;
+            height: 34px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .navbar-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+        }
+        .navbar-sub {
+            font-size: 10px;
+            color: rgba(255,255,255,0.55);
+            font-weight: 400;
+        }
+        .navbar-badge {
+            background: #22c55e;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            background: linear-gradient(135deg, #0f2d6e 0%, #1a4da0 50%, #1565c0 100%);
+            padding: 36px 20px 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40px; left: -40px;
+            width: 150px; height: 150px;
+            background: rgba(34,197,94,0.08);
+            border-radius: 50%;
+        }
+        .hero h1 {
+            font-size: clamp(20px, 5vw, 32px);
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+        .hero h1 span { color: #86efac; }
+        .hero p {
+            margin-top: 8px;
+            color: rgba(255,255,255,0.65);
+            font-size: 13px;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-num {
+            font-size: 22px;
+            font-weight: 800;
+            color: #86efac;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 10px;
+            color: rgba(255,255,255,0.55);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        /* ─── SEARCH BAR ─── */
+        .search-bar {
+            background: #fff;
+            padding: 14px 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 56px;
+            z-index: 100;
+        }
+        .search-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 16px;
+            pointer-events: none;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 11px 16px 11px 42px;
+            font-size: 14px;
+            font-family: inherit;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            outline: none;
+            background: #f8fafc;
+            color: #1e293b;
+            transition: all 0.2s;
+        }
+        #searchInput:focus {
+            border-color: #1a4da0;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(26,77,160,0.1);
+        }
+        #searchInput::placeholder { color: #94a3b8; }
+
+        /* ─── FILTER PILLS ─── */
+        .filter-bar {
+            background: #fff;
+            border-top: 1px solid #f1f5f9;
+            padding: 0 16px 12px;
+        }
+        .filter-scroll {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-top: 10px;
+            scrollbar-width: none;
+        }
+        .filter-scroll::-webkit-scrollbar { display: none; }
+        .pill {
+            flex-shrink: 0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.18s;
+            white-space: nowrap;
+            user-select: none;
+        }
+        .pill-all      { background: #1a4da0; color: #fff; }
+        .pill-insect   { background: #fff3f3; color: #dc2626; border-color: #fecaca; }
+        .pill-fungus   { background: #fffbeb; color: #b45309; border-color: #fde68a; }
+        .pill-herb     { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+        .pill-other    { background: #faf5ff; color: #7e22ce; border-color: #e9d5ff; }
+        .pill.active   { transform: scale(1.04); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+        .pill-all.active      { background: #0f2d6e; }
+        .pill-insect.active   { background: #dc2626; color: #fff; border-color: #dc2626; }
+        .pill-fungus.active   { background: #b45309; color: #fff; border-color: #b45309; }
+        .pill-herb.active     { background: #15803d; color: #fff; border-color: #15803d; }
+        .pill-other.active    { background: #7e22ce; color: #fff; border-color: #7e22ce; }
+
+        /* ─── MAIN CONTENT ─── */
+        .main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 16px 14px 32px;
+        }
+
+        /* ─── SECTION DIVIDER ─── */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 24px 0 12px;
+        }
+        .section-divider:first-child { margin-top: 8px; }
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .section-icon-insect  { background: #fef2f2; }
+        .section-icon-fungus  { background: #fffbeb; }
+        .section-icon-herb    { background: #f0fdf4; }
+        .section-icon-other   { background: #faf5ff; }
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        .section-title-insect { color: #dc2626; }
+        .section-title-fungus { color: #b45309; }
+        .section-title-herb   { color: #15803d; }
+        .section-title-other  { color: #7e22ce; }
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
+        }
+        .section-count {
+            font-size: 11px;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        /* ─── PRODUCT CARD ─── */
+        .product-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+            overflow: hidden;
+            margin-bottom: 12px;
+            border: 1px solid #e8edf5;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transform: translateY(-1px);
+        }
+
+        /* Card accent bar */
+        .card-accent { height: 4px; }
+        .accent-insect  { background: linear-gradient(90deg, #ef4444, #f97316); }
+        .accent-fungus  { background: linear-gradient(90deg, #f59e0b, #eab308); }
+        .accent-herb    { background: linear-gradient(90deg, #22c55e, #16a34a); }
+        .accent-other   { background: linear-gradient(90deg, #a855f7, #7c3aed); }
+
+        /* Card header */
+        .card-header {
+            padding: 14px 16px 12px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        @media (min-width: 560px) {
+            .card-header { display: flex; align-items: flex-start; gap: 16px; }
+            .card-header-left { min-width: 155px; max-width: 185px; flex-shrink: 0; }
+            .card-header-right { flex: 1; padding-top: 2px; }
+        }
+        .product-name {
+            font-size: 17px;
+            font-weight: 800;
+            color: #0f2d6e;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 9px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .tag-insecticide { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+        .tag-fungicide   { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+        .tag-herbicide   { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+        .tag-other       { background: #faf5ff; color: #7e22ce; border: 1px solid #e9d5ff; }
+
+        .technical-label {
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-top: 12px;
+            margin-bottom: 2px;
+        }
+        @media (min-width: 560px) { .technical-label { margin-top: 0; } }
+        .technical-name {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.5;
+            word-break: break-word;
+            font-weight: 500;
+        }
+
+        /* Card body */
+        .card-body {
+            padding: 0 14px 12px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Sub-table */
+        .sub-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12.5px;
+            min-width: 300px;
+            margin-top: 10px;
+        }
+        .sub-table thead tr {
+            background: #f8fafc;
+        }
+        .sub-table th {
+            font-size: 10.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            padding: 8px 10px;
+            border-bottom: 2px solid #e2e8f0;
+            white-space: nowrap;
+            text-align: left;
+        }
+        .sub-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #f1f5f9;
+            color: #374151;
+            vertical-align: middle;
+            line-height: 1.45;
+        }
+        .sub-table tr:last-child td { border-bottom: none; }
+        .sub-table tbody tr:nth-child(even) td { background: #fafbff; }
+        .sub-table tbody tr:hover td { background: #f0f4ff; }
+
+        /* Dose pill */
+        .sub-table td:last-child {
+            font-weight: 600;
+            color: #0f2d6e;
+            white-space: nowrap;
+        }
+
+        /* ─── NO RESULTS ─── */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            display: none;
+        }
+        .no-results-icon { font-size: 48px; margin-bottom: 12px; }
+        .no-results h3 { font-size: 18px; color: #374151; margin-bottom: 6px; }
+        .no-results p  { color: #94a3b8; font-size: 13px; }
+
+        /* ─── LIVE STATS ─── */
+        .live-stats {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 2px 2px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .live-stat {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        .live-stat span {
+            font-weight: 800;
+            color: #1a4da0;
+            font-size: 14px;
+        }
+        .live-stat-sep {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            text-align: center;
+            padding: 24px 16px;
+            font-size: 12px;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 8px;
+        }
+        .footer strong { color: #475569; }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="navbar-brand">
+        <div class="navbar-logo">🌿</div>
+        <div>
+            <div class="navbar-title">NATCO</div>
+            <div class="navbar-sub">Crop Health Sciences</div>
+        </div>
+    </div>
+    <div class="navbar-badge">Catalog 2026</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Complete Product <span>Catalog</span></h1>
+    <p>Searchable database of all crop protection products</p>
+</div>
+
+<!-- SEARCH -->
+<div class="search-bar">
+    <div class="search-inner">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search product, ingredient, crop or pest…" oninput="filterCards()" autocomplete="off">
+    </div>
+</div>
+
+<!-- FILTER PILLS -->
+<div class="filter-bar">
+    <div class="filter-scroll">
+        <div class="pill pill-all active" onclick="setFilter('all', this)">All Products</div>
+        <div class="pill pill-insect" onclick="setFilter('insecticide', this)">🐛 Insecticides</div>
+        <div class="pill pill-fungus" onclick="setFilter('fungicide', this)">🍄 Fungicides</div>
+        <div class="pill pill-herb" onclick="setFilter('herbicide', this)">🌿 Herbicides</div>
+        <div class="pill pill-other" onclick="setFilter('other', this)">🌱 Bio-Stimulants</div>
+    </div>
+    <div class="live-stats">
+        <div class="live-stat"><span id="stat-products">34</span> Products</div>
+        <div class="live-stat-sep">·</div>
+        <div class="live-stat"><span id="stat-categories">4</span> Categories</div>
+        <div class="live-stat-sep">·</div>
+        <div class="live-stat"><span id="stat-crops">50+</span> Crop Rows</div>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+    <div id="noResults" class="no-results">
+        <div class="no-results-icon">🔎</div>
+        <h3>No products found</h3>
+        <p>Try a different search term or clear the filter</p>
+    </div>
+
+    <!-- INSECTICIDES -->
+    <div class="section-divider" data-section="insecticide">
+        <div class="section-icon section-icon-insect">🐛</div>
+        <div class="section-title section-title-insect">Insecticides</div>
+        <div class="section-line"></div>
+        <div class="section-count" id="count-insecticide"></div>
+    </div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATGEN®</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Chlorantraniliprole 18.5% w/w SC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Paddy</td><td>Stem borer, Leaf folder</td><td>60 ml</td></tr>
+<tr><td>Sugarcane</td><td>Early/Top shoot borer, Termite</td><td>150–250 ml</td></tr>
+<tr><td>Cotton, Soybean, Groundnut, Tomato, Chilli, Pigeon Pea</td><td>Bollworms, loopers, borers, caterpillars</td><td>60 ml</td></tr>
+<tr><td>Bengal gram, Okra, Greengram</td><td>Pod/Fruit borers</td><td>50 ml</td></tr>
+<tr><td>Black gram, Bitter gourd</td><td>Borers, Caterpillars</td><td>40–50 ml</td></tr>
+<tr><td>Brinjal, Maize</td><td>Shoot borer, Fall armyworm</td><td>80 ml</td></tr>
+<tr><td>Cabbage</td><td>Diamond backmoth</td><td>20 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATLIGO®</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Chlorantraniliprole 9.3% w/w + Lambda-cyhalothrin 4.6% w/w ZC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Paddy, Soybean, Bengal gram, Cabbage, Pigeon pea, Brinjal, Okra, Groundnut, Blackgram, Grapes</td><td>Borers, hoppers, leaf worms, thrips</td><td>80–100 ml</td></tr>
+<tr><td>Tomato, Maize, Cotton</td><td>Fruit borer, Fall Armyworm, Bollworm complex</td><td>100 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATVOL®</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Chlorantraniliprole 8.8% + Thiamethoxam 17.5% SC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Sugarcane</td><td>Early/Top shoot borer, Termite, White Grub</td><td>240 ml</td></tr>
+<tr><td>Tomato</td><td>Leaf miner, Whitefly, Fruit borer</td><td>200 ml</td></tr>
+<tr><td>Paddy (Nursery)</td><td>Stem borer, Leaf folder, Green leaf hopper</td><td>240 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATDUO®</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Chlorantraniliprole 0.5% + Thiamethoxam 1.0% GR</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Sugarcane</td><td>Early shoot borer</td><td>4 kg</td></tr>
+<tr><td>Onion</td><td>Thrips, cutworms</td><td>2.4 kg</td></tr>
+<tr><td>Paddy, Maize</td><td>Stem/Leaf borers, hoppers, Aphids</td><td>2.5 kg</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATERRA®</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Chlorantraniliprole 0.4% w/w GR</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Paddy</td><td>Yellow stem borer, Leaf folder</td><td>4 kg</td></tr>
+<tr><td>Sugarcane</td><td>Early shoot borer, Top shoot borer</td><td>7.5 kg</td></tr>
+<tr><td>Maize</td><td>Fall army worm, Stem borer</td><td>5 kg</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATGEN PRO™</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Chlorantraniliprole 35% WG</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Okra</td><td>Fruit borers</td><td>28.5 g</td></tr>
+<tr><td>Tomato</td><td>Fruit borer</td><td>34.4 g</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATZOATE®</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Emamectin Benzoate 5% SG</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Okra (Bhindi)</td><td>Fruit and shoot borer</td><td>54–68 g</td></tr>
+<tr><td>Brinjal, Chilli, Tea</td><td>Borers, Thrips, Mites, Tea looper</td><td>80 g</td></tr>
+<tr><td>Cotton</td><td>Bollworms</td><td>76–88 g</td></tr>
+<tr><td>Cabbage</td><td>Diamond backmoth</td><td>60–80 g</td></tr>
+<tr><td>Red gram, Bengal gram, Grapes</td><td>Pod borer, Thrips</td><td>88 g</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATJEWEL® FS</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Thiamethoxam 30% FS</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /kg seed</th></tr>
+<tr><td>Cotton, Soybean, Sorghum, Sunflower</td><td>Aphids, Whitefly, Jassids, Stem/Shoot fly, Thrips</td><td>10.0 ml</td></tr>
+<tr><td>Chilli</td><td>Thrips</td><td>7.0 ml</td></tr>
+<tr><td>Okra</td><td>Jassids</td><td>5.7 ml</td></tr>
+<tr><td>Maize</td><td>Shoot fly</td><td>8.0 ml</td></tr>
+<tr><td>Paddy</td><td>Thrips, Green leaf hopper, Whorl maggot</td><td>3.0 ml</td></tr>
+<tr><td>Wheat</td><td>Termites</td><td>3.3 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATLAM®</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Lambda-cyhalothrin 4.9% CS</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Grapes, Paddy</td><td>Thrips, Flea beetle, Stem borer, Leaf folder</td><td>100 ml</td></tr>
+<tr><td>Pomegranate, Cotton, Chilli</td><td>Thrips, Fruit borer, Bollworms, Pod borer</td><td>200 ml</td></tr>
+<tr><td>Cardamom</td><td>Shoot and capsule borer, Thrips</td><td>160 ml</td></tr>
+<tr><td>Tomato, Brinjal, Okra, Soybean</td><td>Fruit/Shoot borer, Stem fly, Semilooper</td><td>120 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATLIKA™</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Thiamethoxam 12.6% + Lambda-cyhalothrin 9.5% ZC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Cotton</td><td>Aphids, Jassids, Thrips, Bollworms</td><td>80 ml</td></tr>
+<tr><td>Maize, Groundnut, Soybean, Tomato</td><td>Borers, Shoot fly, Leaf hoppers, Whitefly</td><td>50 ml</td></tr>
+<tr><td>Chilli, Black gram, Cumin, Citrus, Wheat, Tea</td><td>Thrips, Aphids, Bug, Psyllids, Leafminer, Stem borer</td><td>60 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATNEXT®</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Chlorantraniliprole 4.3% w/w + Abamectin 1.7% w/w SC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Chilli</td><td>Thrips, Mites, Fruit borer</td><td>250 ml</td></tr>
+<tr><td>Tomato</td><td>Fruit borer, Leafminer, Mites</td><td>200 ml</td></tr>
+<tr><td>Paddy</td><td>Stem borer, Leaf folder, Green leaf hopper</td><td>533.2 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">VINASAK™</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Pymetrozine 50% w/w WG</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Paddy (Rice)</td><td>Brown plant hopper</td><td>120 g</td></tr>
+<tr><td>Mango</td><td>Hoppers</td><td>120 g</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">CYANAT®</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Cyantraniliprole 10.26% w/w OD</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Chilli</td><td>Thrips, Fruit borer, Tobacco caterpillar</td><td>240 ml</td></tr>
+<tr><td>Grapes</td><td>Thrips, Flea beetle</td><td>280 ml</td></tr>
+<tr><td>Tomato</td><td>Aphids, Thrips, Whitefly, Fruit borer, Leafminer</td><td>360 ml</td></tr>
+<tr><td>Pomegranate</td><td>Thrips, Pomegranate butterfly, Whitefly, Aphids</td><td>300–360 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">ATMOS™</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Cyantraniliprole 7.3% + Diafenthiuron 36.4% w/w SC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Chilli</td><td>Thrips, Mites, Whitefly, Fruit borer</td><td>250 ml</td></tr>
+<tr><td>Cotton</td><td>Jassids, Whitefly, Thrips, Aphids, Pink bollworm</td><td>250 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">ASTOR™</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Chlorantraniliprole 50% w/w FS</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre (Seed Trt)</th></tr>
+<tr><td>Maize</td><td>Fall armyworm, Spotted stem borer</td><td>25.6–44.8 ml</td></tr>
+<tr><td>Rice</td><td>Yellow stem borer, Leaf folder</td><td>48 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">PAMUK™</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Cyantraniliprole 10% + Pymetrozine 50% WG</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Paddy</td><td>Stem borer, Leaf folder, Brown plant hopper</td><td>120 g</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">DEXARON™</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Novaluron 5.25% + Indoxacarb 4.5% w/w SC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Black gram, Chickpea, Chilli, Red gram, Soybean, Tomato</td><td>Pod borer complex, Fruit borer, Helicoverpa, Spodoptera</td><td>330–350 ml</td></tr>
+<tr><td>Groundnut</td><td>Helicoverpa armigera &amp; Spodoptera litura</td><td>350 ml</td></tr>
+<tr><td>Rice / Paddy</td><td>Leaf folder</td><td>175 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">DI-FORCE™</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Diafenthiuron 47% + Bifenthrin 9.4% SC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Cotton, Chilli</td><td>Thrips, Leaf hopper, Whitefly, Aphids</td><td>250 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">SPIROVANTA™</div>
+            <span class="tag tag-insecticide">Insecticide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Spiromesifen 22.9% w/w SC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Target</th><th>Dose /Acre</th></tr>
+<tr><td>Brinjal, Chilli, Tea</td><td>Red Spider Mite, Yellow Mite</td><td>160 ml</td></tr>
+<tr><td>Apple</td><td>European Red Mite, Red Spider Mite</td><td>120 ml</td></tr>
+<tr><td>Okra</td><td>Red Spider Mite</td><td>160–200 ml</td></tr>
+<tr><td>Tomato, Cotton, Cucumber</td><td>Whitefly, Mites</td><td>240–250 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="insecticide">
+    <div class="card-accent accent-insect"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">HATRIK®</div>
+            <span class="tag tag-insecticide">Insecticide &amp; Fungicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Tolfenpyrad 15% EC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Pest / Disease</th><th>Dose /Acre</th></tr>
+<tr><td>Cabbage, Okra, Cotton, Cumin, Chilli, Pomegranate, Mango, Onion</td><td>Diamond back moth, Aphids, Jassids, Thrips, Hoppers</td><td>400 ml</td></tr>
+<tr><td>Chilli, Mango, Cumin</td><td>Powdery mildew, Anthracnose, Blight</td><td>400 ml</td></tr>
+</table></div></div>
+
+    <!-- FUNGICIDES -->
+    <div class="section-divider" data-section="fungicide">
+        <div class="section-icon section-icon-fungus">🍄</div>
+        <div class="section-title section-title-fungus">Fungicides</div>
+        <div class="section-line"></div>
+        <div class="section-count" id="count-fungicide"></div>
+    </div>
+
+<div class="product-card product-row" data-category="fungicide">
+    <div class="card-accent accent-fungus"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATPEARL®</div>
+            <span class="tag tag-fungicide">Fungicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Azoxystrobin 18.2% w/w + Difenoconazole 11.4% w/w SC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Disease</th><th>Dose /Acre</th></tr>
+<tr><td>Chilli, Tomato, Paddy, Maize, Wheat, Cotton, Turmeric, Onion, Sugarcane, Groundnut, Black gram, Soybean</td><td>Anthracnose, Powdery mildew, Blight, Blast, Rust, Leaf spot, Smut</td><td>200 ml</td></tr>
+<tr><td>Banana</td><td>Yellow Sigatoka</td><td>400 ml</td></tr>
+<tr><td>Coffee</td><td>Rust</td><td>1 ml / lt water</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="fungicide">
+    <div class="card-accent accent-fungus"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">PRIDONAT®</div>
+            <span class="tag tag-fungicide">Fungicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Pyraclostrobin 20% WG</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Disease</th><th>Dose /Acre</th></tr>
+<tr><td>Banana</td><td>Sigatoka leaf spot</td><td>300 g</td></tr>
+<tr><td>Chilli, Corn/Maize, Cotton, Groundnut</td><td>Anthracnose, Leaf blight, Tikka leaf spot</td><td>200 g</td></tr>
+<tr><td>Soybean, Tomato</td><td>Frog eye leaf spot, Alternaria leaf spot, Early blight</td><td>150–200 g</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="fungicide">
+    <div class="card-accent accent-fungus"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATCORE™</div>
+            <span class="tag tag-fungicide">Fungicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Azoxystrobin 11% w/w + Tebuconazole 18.3% w/w SC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Disease</th><th>Dose /Acre</th></tr>
+<tr><td>Grapes, Potato, Wheat, Tomato, Paddy, Onion</td><td>Downy/Powdery mildew, Early/Late blight, Yellow rust, Sheath blight, Purple blotch</td><td>300 ml</td></tr>
+<tr><td>Chilli</td><td>Fruit rot, Powdery mildew, Dieback</td><td>240 ml</td></tr>
+<tr><td>Apple</td><td>Scab, Powdery mildew, Premature leaf fall</td><td>1 ml / L water</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="fungicide">
+    <div class="card-accent accent-fungus"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">BOSNAT®</div>
+            <span class="tag tag-fungicide">Fungicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Boscalid 25.2% + Pyraclostrobin 12.8% WG</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Disease</th><th>Dose /Acre</th></tr>
+<tr><td>Grapes</td><td>Downy mildew, Powdery mildew</td><td>200–240 g</td></tr>
+<tr><td>Tomato, Onion</td><td>Early blight, Purple blotch</td><td>200 g</td></tr>
+<tr><td>Chilli</td><td>Powdery mildew</td><td>240 g</td></tr>
+<tr><td>Apple</td><td>Powdery mildew</td><td>300 g</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="fungicide">
+    <div class="card-accent accent-fungus"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">GLANZ®</div>
+            <span class="tag tag-fungicide">Fungicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Tebuconazole 50% + Trifloxystrobin 25% w/w WG</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Disease</th><th>Dose /Acre</th></tr>
+<tr><td>Rice (Paddy)</td><td>Sheath blight, Leaf blast &amp; Neck blast, Glume discoloration</td><td>80 g</td></tr>
+<tr><td>Grapes</td><td>Powdery mildew</td><td>70 g</td></tr>
+<tr><td>Chilli</td><td>Powdery mildew, Anthracnose, Alternaria leaf spot</td><td>100 g</td></tr>
+</table></div></div>
+
+    <!-- HERBICIDES -->
+    <div class="section-divider" data-section="herbicide">
+        <div class="section-icon section-icon-herb">🌿</div>
+        <div class="section-title section-title-herb">Herbicides</div>
+        <div class="section-line"></div>
+        <div class="section-count" id="count-herbicide"></div>
+    </div>
+
+<div class="product-card product-row" data-category="herbicide">
+    <div class="card-accent accent-herb"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">VECTRA™</div>
+            <span class="tag tag-herbicide">Herbicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Fomesafen 12.5% + Quizalofop-ethyl 4.68% w/w EC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Target Weeds</th><th>Dose /Acre</th></tr>
+<tr><td>Groundnut, Soybean</td><td>Dactyloctenium, Digitaria, Echinochloa, Eleusine, Acalypha, Digera, Trianthema, Phyllanthus, Boerhavia, Cyperus, Commelina, Parthenium</td><td>400 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="herbicide">
+    <div class="card-accent accent-herb"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">SCRIPTOR™</div>
+            <span class="tag tag-herbicide">Herbicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Halosulfuron-methyl 75% WG</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Target Weeds</th><th>Dose /Acre</th></tr>
+<tr><td>Sugarcane</td><td>Cyperus rotundus</td><td>32–36 g</td></tr>
+<tr><td>Maize, Bottle gourd</td><td>Cyperus rotundus, Cyperus iria</td><td>36 g</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="herbicide">
+    <div class="card-accent accent-herb"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATWEEZ®</div>
+            <span class="tag tag-herbicide">Herbicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Pyrazosulfuron Ethyl 10% WP</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Target Weeds</th><th>Dose /Acre</th></tr>
+<tr><td>Rice (Transplanted)</td><td>Cyperus difformis, Fimbristylis miliacea, Monochoria vaginalis, Cyperus iria, Ludwigia parviflora</td><td>40–60 g</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="herbicide">
+    <div class="card-accent accent-herb"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">TOPRASURE™ + SURFANAT</div>
+            <span class="tag tag-herbicide">Herbicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Topramezone 336 g/l w/v SC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Target Weeds</th><th>Dose /Acre</th></tr>
+<tr><td>Maize</td><td>Elusine, Digitaria, Dactyloctenium, Echinochloa, Chloris, Parthenium, Digera, Amaranthus, Physalis, Alternanthera, Convolvulus, Celotia</td><td>30 ml + 300 ml adjuvant</td></tr>
+<tr><td>Sugarcane</td><td>Panicum, Dactyloctenium, Commelina, Digitaria, Parthenium, Trianthema, Euphorbia</td><td>36 ml + 300 ml adjuvant</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="herbicide">
+    <div class="card-accent accent-herb"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">OMNINAT®</div>
+            <span class="tag tag-herbicide">Herbicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Bispyribac Sodium 10% w/w SC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Target Weeds</th><th>Dose /Acre</th></tr>
+<tr><td>Rice (Nursery)</td><td>Echinochloa crusgalli, Echinochloa colonum, Ischaemum rugosum</td><td>80 ml</td></tr>
+<tr><td>Rice (Transplanted / Direct Seeded)</td><td>Cyperus difformis, Cyperus iria, Fimbristylis, Eclipta, Ludwigia, Monochoria, Alternanthera, Sphenocicea</td><td>80–100 ml</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="herbicide">
+    <div class="card-accent accent-herb"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">XYMEN™</div>
+            <span class="tag tag-herbicide">Herbicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Pyroxasulfone 85% WG</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Target Weeds</th><th>Dose /Acre</th></tr>
+<tr><td>Soybean</td><td>Echinochloa colonum, Celosia, Trianthema, Amarthanus, Digeria</td><td>60 g</td></tr>
+<tr><td>Wheat</td><td>Phalaris minor</td><td>60 g</td></tr>
+<tr><td>Maize</td><td>Echinochloa crus-galli, Eleusine, Phyllanthus</td><td>60 g</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="herbicide">
+    <div class="card-accent accent-herb"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">SLAYDEN®</div>
+            <span class="tag tag-herbicide">Herbicide</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Pinoxaden 5.1% EC</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Target Weeds</th><th>Dose /Acre</th></tr>
+<tr><td>Wheat</td><td>Phalaris minor (Canary grass), Avena ludoviciana (Wild oat)</td><td>320–360 ml</td></tr>
+</table></div></div>
+
+    <!-- OTHERS -->
+    <div class="section-divider" data-section="other">
+        <div class="section-icon section-icon-other">🌱</div>
+        <div class="section-title section-title-other">Bio-Stimulants &amp; Other</div>
+        <div class="section-line"></div>
+        <div class="section-count" id="count-other"></div>
+    </div>
+
+<div class="product-card product-row" data-category="other">
+    <div class="card-accent accent-other"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">GLACPOT®</div>
+            <span class="tag tag-other">Bio-Stimulant</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Protein Hydrolysate 20% (Liquid)</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Benefits</th><th>Dose /Acre</th></tr>
+<tr><td>Chickpea</td><td>Nutrient uptake, abiotic stress tolerance, improved flowering and fruit setting</td><td>600 ml (3.0 ml / lit water)</td></tr>
+</table></div></div>
+
+<div class="product-card product-row" data-category="other">
+    <div class="card-accent accent-other"></div>
+    <div class="card-header">
+        <div class="card-header-left">
+            <div class="product-name">NATCRUSH® ME</div>
+            <span class="tag tag-other">Pheromone Lure</span>
+        </div>
+        <div class="card-header-right">
+            <div class="technical-label">Active Ingredient</div>
+            <div class="technical-name">Methyl Eugenol</div>
+        </div>
+    </div>
+    <div class="card-body"><table class="sub-table">
+<tr><th>Crop</th><th>Target Pest</th><th>Dose /Acre</th></tr>
+<tr><td>Mango, Guava, Citrus fruits, Banana, Dragon fruit, Custard apple, Papaya</td><td>Fruit Fly Species (Bactrocera dorsalis, B. zonata, B. correcta, B. carambola)</td><td>250 g</td></tr>
+</table></div></div>
+
+</div><!-- /.main -->
+
+<div class="footer">
+    <strong>NATCO Crop Health Sciences</strong> &nbsp;&nbsp;|&nbsp;&nbsp; <strong style="font-size:14px;">By Yuvinder</strong>
+</div>
+
+<script>
+    let activeCategory = 'all';
+
+    function setFilter(cat, el) {
+        activeCategory = cat;
+        document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+        el.classList.add('active');
+        filterCards();
+    }
+
+    function filterCards() {
+        const filter = document.getElementById('searchInput').value.toLowerCase().trim();
+        const cards = document.querySelectorAll('.product-card');
+        const counts = { insecticide: 0, fungicide: 0, herbicide: 0, other: 0 };
+        let totalVisible = 0;
+        let totalCrops = 0;
+
+        cards.forEach(card => {
+            const cat = card.dataset.category;
+            const catMatch = activeCategory === 'all' || cat === activeCategory;
+
+            if (!catMatch) {
+                card.style.display = 'none';
+                card.querySelectorAll('.sub-table tr').forEach(r => r.style.display = '');
+                return;
+            }
+
+            if (!filter) {
+                card.style.display = '';
+                card.querySelectorAll('.sub-table tr').forEach(r => r.style.display = '');
+                counts[cat]++;
+                totalVisible++;
+                // count all data rows as crop entries
+                totalCrops += card.querySelectorAll('.sub-table tr:not(:first-child)').length;
+                return;
+            }
+
+            // Check product name / technical name match
+            const headerText = card.querySelector('.card-header').innerText.toLowerCase();
+            const headerMatch = headerText.includes(filter);
+
+            // Filter data rows
+            const dataRows = card.querySelectorAll('.sub-table tr:not(:first-child)');
+            let rowVisible = 0;
+            dataRows.forEach(row => {
+                const match = row.innerText.toLowerCase().includes(filter);
+                row.style.display = match ? '' : 'none';
+                if (match) rowVisible++;
+            });
+
+            if (headerMatch) {
+                dataRows.forEach(r => r.style.display = '');
+                card.style.display = '';
+                counts[cat]++;
+                totalVisible++;
+                totalCrops += dataRows.length;
+            } else if (rowVisible > 0) {
+                card.style.display = '';
+                counts[cat]++;
+                totalVisible++;
+                totalCrops += rowVisible;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Update hero stats
+        const activeCats = Object.values(counts).filter(v => v > 0).length;
+        document.getElementById('stat-products').textContent = totalVisible;
+        document.getElementById('stat-categories').textContent = activeCats;
+        document.getElementById('stat-crops').textContent = totalCrops;
+
+        // Section dividers visibility + counts
+        document.querySelectorAll('.section-divider').forEach(div => {
+            const sec = div.dataset.section;
+            const visible = counts[sec] > 0;
+            div.style.display = visible ? '' : 'none';
+            const countEl = document.getElementById('count-' + sec);
+            if (countEl) countEl.textContent = visible ? counts[sec] + ' product' + (counts[sec] !== 1 ? 's' : '') : '';
+        });
+
+        document.getElementById('noResults').style.display = totalVisible === 0 ? 'block' : 'none';
+    }
+
+    // Init counts on load
+    window.addEventListener('DOMContentLoaded', filterCards);
+</script>
+</body>
+</html>
